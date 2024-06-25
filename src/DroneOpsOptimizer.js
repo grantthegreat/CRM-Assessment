@@ -3,36 +3,44 @@ import { ChevronRight, ChevronLeft } from 'lucide-react';
 
 const questions = [
   {
-    text: "How many active clients does your drone service business currently manage?",
-    options: ["Less than 10", "11-15", "16-25", "More than 25"]
-  },
-  {
-    text: "What's the size of your team (including yourself)?",
-    options: ["1-2", "3-5", "6-10", "More than 10"]
-  },
-  {
-    text: "What's your average project size in USD?",
-    options: ["Less than $2,500", "$2,501 - $5,000", "$5,001 - $7,500", "$7,501 - $10,000", "More than $10,000"]
-  },
-  {
-    text: "What's your average sales cycle length?",
-    options: ["Less than 1 month", "1-3 months", "3-6 months", "More than 6 months"]
-  },
-  {
-    text: "What's your client retention rate?",
-    options: ["Less than 25%", "26-50%", "51-75%", "More than 75%"]
-  },
-  {
-    text: "How often do you lose track of project deliverables, timelines, or tasks due to lack of a centralized system?",
+    text: "How often do you feel that potential leads are slipping through the cracks due to poor tracking and follow-up?",
     options: ["Rarely", "Occasionally", "Frequently", "Very Frequently"]
   },
   {
-    text: "How challenging is it to track multiple project progresses simultaneously?",
-    options: ["Not Challenging", "Somewhat Challenging", "Very Challenging", "Extremely Challenging"]
+    text: "How much time do you estimate your team spends on manual lead tracking and qualification each week?",
+    options: ["Less than 2 hours", "2-5 hours", "6-10 hours", "More than 10 hours"]
   },
   {
-    text: "How difficult is it to generate reports or gain insights from your current data?",
-    options: ["Not Difficult", "Somewhat Difficult", "Very Difficult", "Extremely Difficult"]
+    text: "How consistent are your marketing efforts in nurturing leads throughout the sales process?",
+    options: ["Very Consistent", "Somewhat Consistent", "Inconsistent", "We don't have a structured nurturing process"]
+  },
+  {
+    text: "How often do you experience project management issues like missed deadlines or miscommunication with clients?",
+    options: ["Rarely", "Occasionally", "Frequently", "Very Frequently"]
+  },
+  {
+    text: "How confident are you that your sales team is pursuing qualified opportunities that match your ideal client profile?",
+    options: ["Very Confident", "Somewhat Confident", "Not Very Confident", "Not Confident at All"]
+  },
+  {
+    text: "How would you rate the visibility into your current sales pipeline and deal progression?",
+    options: ["Excellent", "Good", "Fair", "Poor"]
+  },
+  {
+    text: "On average, how long is your sales cycle from initial contact to closing a deal?",
+    options: ["Less than 1 month", "1-3 months", "3-6 months", "More than 6 months"]
+  },
+  {
+    text: "How would you rate your ability to maintain personalized communication and follow-up with clients?",
+    options: ["Excellent", "Good", "Fair", "Poor"]
+  },
+  {
+    text: "How easily can you track and report on key metrics like lead conversion rates and customer lifetime value?",
+    options: ["Very Easily", "Somewhat Easily", "With Difficulty", "We Can't Track These Metrics"]
+  },
+  {
+    text: "How confident are you in your ability to identify upselling/cross-selling opportunities with existing clients?",
+    options: ["Very Confident", "Somewhat Confident", "Not Very Confident", "Not Confident at All"]
   }
 ];
 
@@ -69,9 +77,9 @@ const DroneOpsOptimizer = () => {
   };
 
   const getRecommendation = (score) => {
-    if (score < 10) return "Your current setup seems to be working well for now. However, as you grow, consider exploring CRM options to streamline your processes.";
-    if (score < 20) return "You're at a stage where a CRM could significantly benefit your operations. It's time to seriously explore your options.";
-    return "Based on your responses, implementing a CRM system should be a top priority. It could greatly enhance your organization, client management, and overall business efficiency.";
+    if (score < 10) return "Your current operations seem well-organized, but there's always room for improvement. Consider exploring CRM options to further streamline your processes.";
+    if (score < 20) return "You're facing some common challenges that a CRM could help address. It's time to seriously explore your options to improve efficiency and growth.";
+    return "Based on your responses, implementing a CRM system should be a top priority. It could significantly enhance your lead management, client relationships, and overall business efficiency.";
   };
 
   if (showResults) {
@@ -96,7 +104,7 @@ const DroneOpsOptimizer = () => {
         
         <h3 className="text-xl font-bold mb-2 text-[#FFD43D]">How We Calculate Your Score:</h3>
         <p className="mb-4">
-          For each question, we assign a value from 0 to 3 based on your answer, with 0 representing the least need for a CRM and 3 representing the highest need. These values are then summed up to give your total score. The maximum possible score is {questions.length * 3}, indicating a strong need for a CRM system.
+          For each question, we assign a value from 0 to 3 based on your answer, with 0 representing the least need for a CRM and 3 representing the highest need. These values are then summed up to give your total score. The maximum possible score is {questions.length * 3}, indicating a strong need for a CRM system to optimize your drone operations.
         </p>
         
         <button 
@@ -109,7 +117,7 @@ const DroneOpsOptimizer = () => {
     );
   }
 
- return (
+  return (
     <div className="bg-[#090B1A] text-[#EDEEF0] p-6 rounded-lg shadow-md max-w-2xl mx-auto">
       <h1 className="text-2xl font-bold mb-6 text-[#FFD43D]">Drone Ops Optimizer</h1>
       <div className="mb-4">
@@ -162,4 +170,4 @@ const DroneOpsOptimizer = () => {
   );
 };
 
-export default CRMAssessment;
+export default DroneOpsOptimizer;
