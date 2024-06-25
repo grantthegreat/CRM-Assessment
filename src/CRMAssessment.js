@@ -7,6 +7,22 @@ const questions = [
     options: ["Less than 10", "10-20", "21-50", "More than 50"]
   },
   {
+    text: "How many team members are involved in your sales and client management processes?",
+    options: ["1-2", "3-5", "6-10", "More than 10"]
+  },
+  {
+    text: "What's your average project size in dollars?",
+    options: ["Less than $1,000", "$1,000 - $5,000", "$5,001 - $10,000", "More than $10,000"]
+  },
+  {
+    text: "What's your typical sales cycle length?",
+    options: ["Less than 1 week", "1-2 weeks", "2-4 weeks", "More than 4 weeks"]
+  },
+  {
+    text: "What's your current client retention rate?",
+    options: ["Less than 50%", "50-70%", "71-90%", "More than 90%"]
+  },
+  {
     text: "How often do you experience data inconsistencies or communication gaps with clients?",
     options: ["Rarely", "Occasionally", "Frequently", "Very Frequently"]
   },
@@ -21,6 +37,10 @@ const questions = [
   {
     text: "How difficult is it to generate reports or gain insights from your current data?",
     options: ["Not Difficult", "Somewhat Difficult", "Very Difficult", "Extremely Difficult"]
+  },
+  {
+    text: "What's your current lead conversion rate?",
+    options: ["Less than 10%", "10-20%", "21-30%", "More than 30%"]
   }
 ];
 
@@ -57,9 +77,12 @@ const CRMAssessment = () => {
   };
 
   const getRecommendation = (score) => {
-    if (score < 5) return "Your current spreadsheet setup seems to be working well for now. Keep monitoring your growth!";
-    if (score < 10) return "You're approaching the point where a CRM could significantly benefit your operations. Consider exploring options.";
-    return "It's time to seriously consider implementing a CRM. Your business could greatly benefit from the enhanced organization and automation.";
+    const maxScore = questions.length * 3;
+    const percentage = (score / maxScore) * 100;
+
+    if (percentage < 30) return "Your current setup seems to be working well for now. Keep monitoring your growth and be prepared to implement a CRM as you scale.";
+    if (percentage < 60) return "You're at a stage where a CRM could significantly benefit your operations. Consider exploring options to streamline your processes and improve client management.";
+    return "It's crucial to implement a robust CRM system. Your business could greatly benefit from enhanced organization, automation, and data insights that a CRM provides.";
   };
 
   if (showResults) {
@@ -72,7 +95,7 @@ const CRMAssessment = () => {
         <p className="font-semibold mb-2 text-[#FFD43D]">{recommendation}</p>
         <p className="mb-4">Score: {score} out of {questions.length * 3}</p>
         <button 
-          onClick={() => window.location.href='https://dronepros.co/contact'}
+          onClick={() => window.open('https://app.apollo.io/#/meet/inbound-router/jve-d9j-9xk', '_blank')}
           className="bg-[#FFD43D] text-[#090B1A] px-4 py-2 rounded hover:bg-[#FFD43D]/80 transition-colors"
         >
           Get a Free Consultation
