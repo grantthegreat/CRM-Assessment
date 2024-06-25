@@ -23,7 +23,7 @@ const questions = [
     options: ["Less than 25%", "26-50%", "51-75%", "More than 75%"]
   },
   {
-    text: "How often do you experience data inconsistencies or communication gaps with clients?",
+    text: "How often do you lose track of project deliverables, timelines, or tasks due to lack of a centralized system?",
     options: ["Rarely", "Occasionally", "Frequently", "Very Frequently"]
   },
   {
@@ -109,7 +109,57 @@ const CRMAssessment = () => {
     );
   }
 
-  // ... (rest of the component code remains the same)
+  return (
+    <div className="bg-[#090B1A] text-[#EDEEF0] p-6 rounded-lg shadow-md max-w-2xl mx-auto">
+      <h1 className="text-2xl font-bold mb-6 text-[#FFD43D]">DSP CRM Readiness Assessment</h1>
+      <div className="mb-4">
+        <p className="font-semibold mb-2">{questions[currentQuestion].text}</p>
+        <div className="space-y-2">
+          {questions[currentQuestion].options.map((option, index) => (
+            <button
+              key={index}
+              onClick={() => handleAnswer(option)}
+              className={`w-full text-left p-2 rounded ${
+                answers[currentQuestion] === option 
+                  ? 'bg-[#FFD43D] text-[#090B1A]' 
+                  : 'bg-[#100F0D] hover:bg-[#100F0D]/80'
+              }`}
+            >
+              {option}
+            </button>
+          ))}
+        </div>
+      </div>
+      <div className="flex justify-between mt-4">
+        <button
+          onClick={prev}
+          disabled={currentQuestion === 0}
+          className="flex items-center px-4 py-2 bg-[#100F0D] rounded disabled:opacity-50"
+        >
+          <ChevronLeft className="mr-2" size={16} />
+          Previous
+        </button>
+        <button
+          onClick={next}
+          disabled={answers[currentQuestion] === null}
+          className="flex items-center px-4 py-2 bg-[#FFD43D] text-[#090B1A] rounded disabled:opacity-50"
+        >
+          {currentQuestion === questions.length - 1 ? 'Finish' : 'Next'}
+          <ChevronRight className="ml-2" size={16} />
+        </button>
+      </div>
+      <div className="mt-4 flex justify-center">
+        {questions.map((_, index) => (
+          <span
+            key={index}
+            className={`w-3 h-3 rounded-full mx-1 ${
+              index === currentQuestion ? 'bg-[#FFD43D]' : 'bg-[#100F0D]'
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default CRMAssessment;
