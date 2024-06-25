@@ -36,7 +36,7 @@ const questions = [
   }
 ];
 
-const CRMAssessment = () => {
+const DroneOpsOptimizer = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState(Array(questions.length).fill(null));
   const [showResults, setShowResults] = useState(false);
@@ -79,7 +79,7 @@ const CRMAssessment = () => {
     const recommendation = getRecommendation(score);
     return (
       <div className="bg-[#090B1A] text-[#EDEEF0] p-6 rounded-lg shadow-md max-w-2xl mx-auto">
-        <h2 className="text-2xl font-bold mb-4 text-[#FFD43D]">Your CRM Readiness Results</h2>
+        <h2 className="text-2xl font-bold mb-4 text-[#FFD43D]">Your Optimization Results</h2>
         <p className="mb-4">Based on your responses, here's our assessment:</p>
         <p className="font-semibold mb-2 text-[#FFD43D]">{recommendation}</p>
         <p className="mb-4">Score: {score} out of {questions.length * 3}</p>
@@ -109,9 +109,9 @@ const CRMAssessment = () => {
     );
   }
 
-  return (
+ return (
     <div className="bg-[#090B1A] text-[#EDEEF0] p-6 rounded-lg shadow-md max-w-2xl mx-auto">
-      <h1 className="text-2xl font-bold mb-6 text-[#FFD43D]">DSP CRM Readiness Assessment</h1>
+      <h1 className="text-2xl font-bold mb-6 text-[#FFD43D]">Drone Ops Optimizer</h1>
       <div className="mb-4">
         <p className="font-semibold mb-2">{questions[currentQuestion].text}</p>
         <div className="space-y-2">
