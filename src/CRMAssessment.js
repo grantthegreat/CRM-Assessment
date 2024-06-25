@@ -1,10 +1,65 @@
 import React, { useState } from 'react';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
 
-// ... (questions array remains the same)
+const questions = [
+  {
+    text: "How many active clients does your drone service business currently manage?",
+    options: ["Less than 10", "11-15", "16-25", "More than 25"]
+  },
+  {
+    text: "What's the size of your team (including yourself)?",
+    options: ["1-2", "3-5", "6-10", "More than 10"]
+  },
+  {
+    text: "What's your average project size in USD?",
+    options: ["Less than $2,500", "$2,501 - $5,000", "$5,001 - $7,500", "$7,501 - $10,000", "More than $10,000"]
+  },
+  {
+    text: "What's your average sales cycle length?",
+    options: ["Less than 1 month", "1-3 months", "3-6 months", "More than 6 months"]
+  },
+  {
+    text: "What's your client retention rate?",
+    options: ["Less than 25%", "26-50%", "51-75%", "More than 75%"]
+  },
+  {
+    text: "How often do you experience data inconsistencies or communication gaps with clients?",
+    options: ["Rarely", "Occasionally", "Frequently", "Very Frequently"]
+  },
+  {
+    text: "How challenging is it to track multiple project progresses simultaneously?",
+    options: ["Not Challenging", "Somewhat Challenging", "Very Challenging", "Extremely Challenging"]
+  },
+  {
+    text: "How difficult is it to generate reports or gain insights from your current data?",
+    options: ["Not Difficult", "Somewhat Difficult", "Very Difficult", "Extremely Difficult"]
+  }
+];
 
 const CRMAssessment = () => {
-  // ... (state and other functions remain the same)
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [answers, setAnswers] = useState(Array(questions.length).fill(null));
+  const [showResults, setShowResults] = useState(false);
+
+  const handleAnswer = (answer) => {
+    const newAnswers = [...answers];
+    newAnswers[currentQuestion] = answer;
+    setAnswers(newAnswers);
+  };
+
+  const next = () => {
+    if (currentQuestion < questions.length - 1) {
+      setCurrentQuestion(currentQuestion + 1);
+    } else {
+      setShowResults(true);
+    }
+  };
+
+  const prev = () => {
+    if (currentQuestion > 0) {
+      setCurrentQuestion(currentQuestion - 1);
+    }
+  };
 
   const calculateScore = () => {
     return answers.reduce((total, answer, index) => {
