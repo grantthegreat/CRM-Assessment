@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import DroneOpsOptimizer from './DroneOpsOptimizer';
+import DroneOpsLandingPage from './DroneOpsLandingPage';
 
 function App() {
+  const [showAssessment, setShowAssessment] = useState(false);
+
+  const startAssessment = () => {
+    setShowAssessment(true);
+  };
+
   return (
     <div className="App">
-      <DroneOpsOptimizer />
+      {showAssessment ? (
+        <DroneOpsOptimizer />
+      ) : (
+        <DroneOpsLandingPage startAssessment={startAssessment} />
+      )}
     </div>
   );
 }
