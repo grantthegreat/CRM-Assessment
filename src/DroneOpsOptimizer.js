@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
 
 const questions = [
+  // Lead Generation
   {
     text: "How often do you feel that potential leads are slipping through the cracks due to poor tracking and follow-up?",
     options: ["Rarely", "Occasionally", "Frequently", "Very Frequently"]
@@ -14,10 +15,8 @@ const questions = [
     text: "How consistent are your marketing efforts in nurturing leads throughout the sales process?",
     options: ["Very Consistent", "Somewhat Consistent", "Inconsistent", "We don't have a structured nurturing process"]
   },
-  {
-    text: "How often do you experience project management issues like missed deadlines or miscommunication with clients?",
-    options: ["Rarely", "Occasionally", "Frequently", "Very Frequently"]
-  },
+  
+  // Sales and Pipeline Management
   {
     text: "How confident are you that your sales team is pursuing qualified opportunities that match your ideal client profile?",
     options: ["Very Confident", "Somewhat Confident", "Not Very Confident", "Not Confident at All"]
@@ -30,10 +29,8 @@ const questions = [
     text: "On average, how long is your sales cycle from initial contact to closing a deal?",
     options: ["Less than 1 month", "1-3 months", "3-6 months", "More than 6 months"]
   },
-  {
-    text: "How would you rate your ability to maintain personalized communication and follow-up with clients?",
-    options: ["Excellent", "Good", "Fair", "Poor"]
-  },
+  
+  // Forecasting and Reporting
   {
     text: "How easily can you track and report on key metrics like lead conversion rates and customer lifetime value?",
     options: ["Very Easily", "Somewhat Easily", "With Difficulty", "We Can't Track These Metrics"]
@@ -41,9 +38,18 @@ const questions = [
   {
     text: "How confident are you in your ability to identify upselling/cross-selling opportunities with existing clients?",
     options: ["Very Confident", "Somewhat Confident", "Not Very Confident", "Not Confident at All"]
+  },
+  
+  // Project Management and Deliverables
+  {
+    text: "How often do you experience project management issues like missed deadlines or miscommunication with clients?",
+    options: ["Rarely", "Occasionally", "Frequently", "Very Frequently"]
+  },
+  {
+    text: "How would you rate your ability to maintain personalized communication and follow-up with clients throughout projects?",
+    options: ["Excellent", "Good", "Fair", "Poor"]
   }
 ];
-
 const DroneOpsOptimizer = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [answers, setAnswers] = useState(Array(questions.length).fill(null));
