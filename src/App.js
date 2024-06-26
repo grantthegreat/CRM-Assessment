@@ -1,10 +1,10 @@
 import React from 'react';
-import CRMAssessment from './CRMAssessment';
+import DroneOpsOptimizer from './DroneOpsOptimizer';
 
 function App() {
   return (
     <div className="App">
-      <CRMAssessment />
+      <DroneOpsOptimizer />
     </div>
   );
 }
